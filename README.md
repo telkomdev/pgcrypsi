@@ -71,6 +71,21 @@ Create extensions
 $ CREATE EXTENSION IF NOT EXISTS pgcrypsi;
 ```
 
+### AES GCM encrypt function
+- pgcrypsi_aes_128_gcm_encrypt (AES 128 bit encryption function)
+- pgcrypsi_aes_192_gcm_encrypt (AES 192 bit encryption function)
+- pgcrypsi_aes_256_gcm_encrypt (AES 256 bit encryption function)
+
+### AES GCM decrypt function
+- pgcrypsi_aes_128_gcm_decrypt (AES 128 bit decryption function)
+- pgcrypsi_aes_192_gcm_decrypt (AES 192 bit decryption function)
+- pgcrypsi_aes_256_gcm_decrypt (AES 256 bit decryption function)
+
+### Expected key length
+- AES 128: key length should be 16 bytes/char
+- AES 192: key length should be 24 bytes/char
+- AES 256: key length should be 32 bytes/char
+
 ### Test the extensions
 
 Encrypt
