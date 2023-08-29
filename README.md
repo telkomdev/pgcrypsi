@@ -73,19 +73,19 @@ $ CREATE EXTENSION IF NOT EXISTS pgcrypsi;
 
 ### Test the extensions
 
-Encode
+Encrypt
 ```shell
-database_name=# select pgcrypsi_aes_256_gcm_encrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'this is dark') as res;
-       res
-------------------
- dGhpcyBpcyBkYXJr
+postgres=# select pgcrypsi_aes_256_gcm_encrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'this is dark') as res;
+                                       res
+----------------------------------------------------------------------------------
+ 90fee206d3f41bd92e45e7c876cce4e3f4ed65aeef3cbd05139677bc18d1b393a53848944ef3df05
 (1 row)
 ```
 
-Decode
+Decrypt
 ```shell
-database_name=# select pgcrypsi_aes_256_gcm_decrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'data') as res;
-     res      
+postgres=# select pgcrypsi_aes_256_gcm_decrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', '90fee206d3f41bd92e45e7c876cce4e3f4ed65aeef3cbd05139677bc18d1b393a53848944ef3df05') as res;
+     res
 --------------
  this is dark
 (1 row)
