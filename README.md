@@ -9,6 +9,34 @@ Why not `pgcrypto` ?. At the time this plugin was created, `pgcrypto` did not su
 - https://github.com/telkomdev/c-crypsi
 - Openssl 1.1.1
 
+### `pgcrypsi` is compatible with each other with the following libraries. 
+- Golang https://github.com/telkomdev/go-crypsi
+- Python https://github.com/telkomdev/pycrypsi
+- C# (.NET) https://github.com/telkomdev/NetCrypsi
+- Java/JVM https://github.com/telkomdev/jcrypsi
+- NodeJs https://github.com/telkomdev/crypsi
+- Javascript (React and Browser) https://github.com/telkomdev/crypsi.js
+
+Compatible which means you can directly use existing functions to encrypt and decrypt data. For example, the functions in the Crypsi package for NodeJs below are compatible with the functions in `pgcrypsi`
+
+pgcrypsi
+```sql
+postgres=# select pgcrypsi_aes_128_gcm_encrypt('abc$#128djdyAgbj', 'this is dark') as res;
+                                       res
+----------------------------------------------------------------------------------
+ 817352e89687f1786b6c66939011f9714087a85a87c9eca95ea172067e33d6839235848fed0a32f9
+(1 row)
+```
+
+Decrypt the above encrypted data with the crypsi package for Nodejs
+```javascript
+const { aesEncryption } = require('crypsi');
+
+const decryptedData = aesEncryption.decryptWithAes128Gcm('abc$#128djdyAgbj', '817352e89687f1786b6c66939011f9714087a85a87c9eca95ea172067e33d6839235848fed0a32f9');
+console.log(decryptedData.toString('utf-8')); // result: this is dark
+```
+
+
 ## Getting started
 
 ### Building
