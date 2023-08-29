@@ -5,6 +5,10 @@ C Crypsi (https://github.com/telkomdev/c-crypsi) PostgreSQL Extension
 ## Motivation/ Why ?
 Why not `pgcrypto` ?. At the time this plugin was created, `pgcrypto` did not support `AES GCM` yet. So this plugin is made to fulfill `AES GCM` encryption needs.
 
+## Dependencies
+- https://github.com/telkomdev/c-crypsi
+- Openssl 1.1.1
+
 ## Getting started
 
 ### Building

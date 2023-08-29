@@ -1,0 +1,4 @@
+comment = 'crypsi for postgre'
+default_version = '0.0.1'
+relocatable = true
+module_pathname = '$libdir/pgcrypsi'
