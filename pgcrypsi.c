@@ -86,7 +86,7 @@ Datum pgcrypsi_aes_128_gcm_encrypt(PG_FUNCTION_ARGS)
 
     char* result = palloc(dst_size + 1);
     memcpy((void*) result, (void*) dst, dst_size);
-    result[dst_size] = '\0';
+    result[dst_size] = 0x0;
 
     free((void*) dst);
     PG_RETURN_TEXT_P(cstring_to_text(result));
@@ -146,7 +146,7 @@ Datum pgcrypsi_aes_192_gcm_encrypt(PG_FUNCTION_ARGS)
 
     char* result = palloc(dst_size + 1);
     memcpy((void*) result, (void*) dst, dst_size);
-    result[dst_size] = '\0';
+    result[dst_size] = 0x0;
 
     free((void*) dst);
     PG_RETURN_TEXT_P(cstring_to_text(result));
@@ -206,7 +206,7 @@ Datum pgcrypsi_aes_256_gcm_encrypt(PG_FUNCTION_ARGS)
 
     char* result = palloc(dst_size + 1);
     memcpy((void*) result, (void*) dst, dst_size);
-    result[dst_size] = '\0';
+    result[dst_size] = 0x0;
 
     free((void*) dst);
     PG_RETURN_TEXT_P(cstring_to_text(result));
@@ -266,7 +266,7 @@ Datum pgcrypsi_aes_128_gcm_decrypt(PG_FUNCTION_ARGS)
 
     char* result = palloc(dst_size + 1);
     memcpy((void*) result, (void*) dst, dst_size);
-    result[dst_size] = '\0';
+    result[dst_size] = 0x0;
 
     free((void*) dst);
     PG_RETURN_TEXT_P(cstring_to_text(result));
@@ -326,7 +326,7 @@ Datum pgcrypsi_aes_192_gcm_decrypt(PG_FUNCTION_ARGS)
 
     char* result = palloc(dst_size + 1);
     memcpy((void*) result, (void*) dst, dst_size);
-    result[dst_size] = '\0';
+    result[dst_size] = 0x0;
 
     free((void*) dst);
     PG_RETURN_TEXT_P(cstring_to_text(result));
@@ -386,7 +386,7 @@ Datum pgcrypsi_aes_256_gcm_decrypt(PG_FUNCTION_ARGS)
 
     char* result = palloc(dst_size + 1);
     memcpy((void*) result, (void*) dst, dst_size);
-    result[dst_size] = '\0';
+    result[dst_size] = 0x0;
 
     free((void*) dst);
     PG_RETURN_TEXT_P(cstring_to_text(result));
