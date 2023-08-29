@@ -75,7 +75,7 @@ $ CREATE EXTENSION IF NOT EXISTS pgcrypsi;
 
 Encode
 ```shell
-database_name=# select crypsi_aes_256_gcm_encrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'this is dark') as res;
+database_name=# select pgcrypsi_aes_256_gcm_encrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'this is dark') as res;
        res
 ------------------
  dGhpcyBpcyBkYXJr
@@ -84,7 +84,7 @@ database_name=# select crypsi_aes_256_gcm_encrypt('abc$#128djdyAgbjau&YAnmcbagry
 
 Decode
 ```shell
-database_name=# select crypsi_aes_256_gcm_decrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'data') as res;
+database_name=# select pgcrypsi_aes_256_gcm_decrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'data') as res;
      res      
 --------------
  this is dark

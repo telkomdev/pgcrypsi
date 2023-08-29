@@ -6,8 +6,8 @@
 
 PG_MODULE_MAGIC;
 
-PG_FUNCTION_INFO_V1(crypsi_aes_128_gcm_encrypt);
-Datum crypsi_aes_128_gcm_encrypt(PG_FUNCTION_ARGS)
+PG_FUNCTION_INFO_V1(pgcrypsi_aes_128_gcm_encrypt);
+Datum pgcrypsi_aes_128_gcm_encrypt(PG_FUNCTION_ARGS)
 {   
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
@@ -39,7 +39,7 @@ Datum crypsi_aes_128_gcm_encrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    int ret = crypsi_aes_128_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_128_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -57,8 +57,8 @@ Datum crypsi_aes_128_gcm_encrypt(PG_FUNCTION_ARGS)
     PG_RETURN_TEXT_P(cstring_to_text(result));
 }
 
-PG_FUNCTION_INFO_V1(crypsi_aes_192_gcm_encrypt);
-Datum crypsi_aes_192_gcm_encrypt(PG_FUNCTION_ARGS)
+PG_FUNCTION_INFO_V1(pgcrypsi_aes_192_gcm_encrypt);
+Datum pgcrypsi_aes_192_gcm_encrypt(PG_FUNCTION_ARGS)
 {   
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
@@ -90,7 +90,7 @@ Datum crypsi_aes_192_gcm_encrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    int ret = crypsi_aes_192_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_192_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -108,8 +108,8 @@ Datum crypsi_aes_192_gcm_encrypt(PG_FUNCTION_ARGS)
     PG_RETURN_TEXT_P(cstring_to_text(result));
 }
 
-PG_FUNCTION_INFO_V1(crypsi_aes_256_gcm_encrypt);
-Datum crypsi_aes_256_gcm_encrypt(PG_FUNCTION_ARGS)
+PG_FUNCTION_INFO_V1(pgcrypsi_aes_256_gcm_encrypt);
+Datum pgcrypsi_aes_256_gcm_encrypt(PG_FUNCTION_ARGS)
 {   
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
@@ -141,7 +141,7 @@ Datum crypsi_aes_256_gcm_encrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    int ret = crypsi_aes_256_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_256_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -159,8 +159,8 @@ Datum crypsi_aes_256_gcm_encrypt(PG_FUNCTION_ARGS)
     PG_RETURN_TEXT_P(cstring_to_text(result));
 }
 
-PG_FUNCTION_INFO_V1(crypsi_aes_128_gcm_decrypt);
-Datum crypsi_aes_128_gcm_decrypt(PG_FUNCTION_ARGS)
+PG_FUNCTION_INFO_V1(pgcrypsi_aes_128_gcm_decrypt);
+Datum pgcrypsi_aes_128_gcm_decrypt(PG_FUNCTION_ARGS)
 {   
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
@@ -192,7 +192,7 @@ Datum crypsi_aes_128_gcm_decrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    int ret = crypsi_aes_128_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_128_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -210,8 +210,8 @@ Datum crypsi_aes_128_gcm_decrypt(PG_FUNCTION_ARGS)
     PG_RETURN_TEXT_P(cstring_to_text(result));
 }
 
-PG_FUNCTION_INFO_V1(crypsi_aes_192_gcm_decrypt);
-Datum crypsi_aes_192_gcm_decrypt(PG_FUNCTION_ARGS)
+PG_FUNCTION_INFO_V1(pgcrypsi_aes_192_gcm_decrypt);
+Datum pgcrypsi_aes_192_gcm_decrypt(PG_FUNCTION_ARGS)
 {   
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
@@ -243,7 +243,7 @@ Datum crypsi_aes_192_gcm_decrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    int ret = crypsi_aes_192_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_192_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -261,8 +261,8 @@ Datum crypsi_aes_192_gcm_decrypt(PG_FUNCTION_ARGS)
     PG_RETURN_TEXT_P(cstring_to_text(result));
 }
 
-PG_FUNCTION_INFO_V1(crypsi_aes_256_gcm_decrypt);
-Datum crypsi_aes_256_gcm_decrypt(PG_FUNCTION_ARGS)
+PG_FUNCTION_INFO_V1(pgcrypsi_aes_256_gcm_decrypt);
+Datum pgcrypsi_aes_256_gcm_decrypt(PG_FUNCTION_ARGS)
 {   
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
@@ -294,7 +294,7 @@ Datum crypsi_aes_256_gcm_decrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    int ret = crypsi_aes_256_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_256_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
