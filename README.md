@@ -10,6 +10,7 @@ Why not `pgcrypto` ?. At the time this plugin was created, `pgcrypto` did not su
 - Openssl 1.1.1
 
 ### `pgcrypsi` is compatible with each other with the following libraries. 
+- C/C++ https://github.com/telkomdev/c-crypsi
 - Golang https://github.com/telkomdev/go-crypsi
 - Python https://github.com/telkomdev/pycrypsi
 - C# (.NET) https://github.com/telkomdev/NetCrypsi
