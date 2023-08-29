@@ -9,11 +9,22 @@ PG_MODULE_MAGIC;
 PG_FUNCTION_INFO_V1(pgcrypsi_aes_128_gcm_encrypt);
 Datum pgcrypsi_aes_128_gcm_encrypt(PG_FUNCTION_ARGS)
 {   
+    if (PG_ARGISNULL(0) || PG_ARGISNULL(1)) 
+    {
+        ereport(ERROR,
+            (errcode(ERRCODE_STRING_DATA_LENGTH_MISMATCH),
+                errmsg("empty input_key and input_text are not allowed")
+            )
+        );
+    }
+
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
 
     int32  key_size = VARSIZE_ANY_EXHDR(input_key);
     int32  text_size = VARSIZE_ANY_EXHDR(input_text);
+    elog(NOTICE, "key_size %d", key_size);
+    elog(NOTICE, "text_size %d", text_size);
 
     if (key_size <= 0) 
     {
@@ -39,7 +50,7 @@ Datum pgcrypsi_aes_128_gcm_encrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    ret = crypsi_aes_128_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_128_gcm_encrypt(input_key_cleaned, input_text_cleaned, text_size, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -60,6 +71,15 @@ Datum pgcrypsi_aes_128_gcm_encrypt(PG_FUNCTION_ARGS)
 PG_FUNCTION_INFO_V1(pgcrypsi_aes_192_gcm_encrypt);
 Datum pgcrypsi_aes_192_gcm_encrypt(PG_FUNCTION_ARGS)
 {   
+    if (PG_ARGISNULL(0) || PG_ARGISNULL(1)) 
+    {
+        ereport(ERROR,
+            (errcode(ERRCODE_STRING_DATA_LENGTH_MISMATCH),
+                errmsg("empty input_key and input_text are not allowed")
+            )
+        );
+    }
+
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
 
@@ -90,7 +110,7 @@ Datum pgcrypsi_aes_192_gcm_encrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    ret = crypsi_aes_192_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_192_gcm_encrypt(input_key_cleaned, input_text_cleaned, text_size, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -111,6 +131,15 @@ Datum pgcrypsi_aes_192_gcm_encrypt(PG_FUNCTION_ARGS)
 PG_FUNCTION_INFO_V1(pgcrypsi_aes_256_gcm_encrypt);
 Datum pgcrypsi_aes_256_gcm_encrypt(PG_FUNCTION_ARGS)
 {   
+    if (PG_ARGISNULL(0) || PG_ARGISNULL(1)) 
+    {
+        ereport(ERROR,
+            (errcode(ERRCODE_STRING_DATA_LENGTH_MISMATCH),
+                errmsg("empty input_key and input_text are not allowed")
+            )
+        );
+    }
+
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
 
@@ -141,7 +170,7 @@ Datum pgcrypsi_aes_256_gcm_encrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    ret = crypsi_aes_256_gcm_encrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_256_gcm_encrypt(input_key_cleaned, input_text_cleaned, text_size, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -162,6 +191,15 @@ Datum pgcrypsi_aes_256_gcm_encrypt(PG_FUNCTION_ARGS)
 PG_FUNCTION_INFO_V1(pgcrypsi_aes_128_gcm_decrypt);
 Datum pgcrypsi_aes_128_gcm_decrypt(PG_FUNCTION_ARGS)
 {   
+    if (PG_ARGISNULL(0) || PG_ARGISNULL(1)) 
+    {
+        ereport(ERROR,
+            (errcode(ERRCODE_STRING_DATA_LENGTH_MISMATCH),
+                errmsg("empty input_key and input_text are not allowed")
+            )
+        );
+    }
+
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
 
@@ -192,7 +230,7 @@ Datum pgcrypsi_aes_128_gcm_decrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    ret = crypsi_aes_128_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_128_gcm_decrypt(input_key_cleaned, input_text_cleaned, text_size, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -213,6 +251,15 @@ Datum pgcrypsi_aes_128_gcm_decrypt(PG_FUNCTION_ARGS)
 PG_FUNCTION_INFO_V1(pgcrypsi_aes_192_gcm_decrypt);
 Datum pgcrypsi_aes_192_gcm_decrypt(PG_FUNCTION_ARGS)
 {   
+    if (PG_ARGISNULL(0) || PG_ARGISNULL(1)) 
+    {
+        ereport(ERROR,
+            (errcode(ERRCODE_STRING_DATA_LENGTH_MISMATCH),
+                errmsg("empty input_key and input_text are not allowed")
+            )
+        );
+    }
+
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
 
@@ -243,7 +290,7 @@ Datum pgcrypsi_aes_192_gcm_decrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    ret = crypsi_aes_192_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_192_gcm_decrypt(input_key_cleaned, input_text_cleaned, text_size, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
@@ -264,6 +311,15 @@ Datum pgcrypsi_aes_192_gcm_decrypt(PG_FUNCTION_ARGS)
 PG_FUNCTION_INFO_V1(pgcrypsi_aes_256_gcm_decrypt);
 Datum pgcrypsi_aes_256_gcm_decrypt(PG_FUNCTION_ARGS)
 {   
+    if (PG_ARGISNULL(0) || PG_ARGISNULL(1)) 
+    {
+        ereport(ERROR,
+            (errcode(ERRCODE_STRING_DATA_LENGTH_MISMATCH),
+                errmsg("empty input_key and input_text are not allowed")
+            )
+        );
+    }
+    
     text* input_key = PG_GETARG_TEXT_PP(0);
     text* input_text = PG_GETARG_TEXT_PP(1);
 
@@ -294,7 +350,7 @@ Datum pgcrypsi_aes_256_gcm_decrypt(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     int dst_size = 0;
-    ret = crypsi_aes_256_gcm_decrypt(input_key_cleaned, input_text_cleaned, 0, &dst, &dst_size);
+    ret = crypsi_aes_256_gcm_decrypt(input_key_cleaned, input_text_cleaned, text_size, &dst, &dst_size);
     if (ret != 0)
     {
         ereport(ERROR,
