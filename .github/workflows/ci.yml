@@ -55,4 +55,4 @@ jobs:
 
     - name: Test
       run: |
-        psql -h localhost -U superdevuser -d superdevdb -a -f ./scripts/test.sql
+        export PGPASSWORD='12345678' psql -h localhost -U superdevuser -d superdevdb -a -f ./scripts/test.sql
