@@ -2,6 +2,8 @@
 
 C Crypsi (https://github.com/telkomdev/c-crypsi) PostgreSQL Extension
 
+[![pgcrypsi CI](https://github.com/telkomdev/pgcrypsi/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/telkomdev/pgcrypsi/actions/workflows/ci.yml)
+
 ## Motivation/ Why ?
 Why not `pgcrypto` ?. At the time this plugin was created, `pgcrypto` did not support `AES GCM` yet. So this plugin is made to fulfill `AES GCM` encryption needs.
 
