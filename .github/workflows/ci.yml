@@ -28,7 +28,7 @@ jobs:
       - name: Build Extension
         run: |
           ls /usr/include/postgresql/
-          cc -fPIC -c pgcrypsi.c -I /usr/include/postgresql/10/server/
+          cc -fPIC -c pgcrypsi.c -I /usr/include/postgresql/12/server/
           cc -shared -o pgcrypsi.so pgcrypsi.o
       - name: Check libdir
         run: |
