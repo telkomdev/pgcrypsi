@@ -116,6 +116,11 @@ $ CREATE EXTENSION IF NOT EXISTS pgcrypsi;
 - AES 192: key length should be 24 bytes/char
 - AES 256: key length should be 32 bytes/char
 
+### Run test
+```shell
+postgres=# \i /home/user/pgcrypsi/test.sql
+```
+
 ### Test the extensions
 
 Encrypt
