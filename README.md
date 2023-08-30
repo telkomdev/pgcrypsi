@@ -17,6 +17,7 @@ Why not `pgcrypto` ?. At the time this plugin was created, `pgcrypto` did not su
 - Java/JVM https://github.com/telkomdev/jcrypsi
 - NodeJs https://github.com/telkomdev/crypsi
 - Javascript (React and Browser) https://github.com/telkomdev/crypsi.js
+- MySQL https://github.com/telkomdev/crypsi-mysql-udf
 
 Compatible which means you can directly use existing functions to encrypt and decrypt data. For example, the functions in the Crypsi package for NodeJs below are compatible with the functions in `pgcrypsi`
 
