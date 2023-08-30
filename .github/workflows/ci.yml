@@ -1,0 +1,34 @@
+name: pgcrypsi CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set permission to install_ubuntu_deps
+        run: chmod +x ./scripts/install_ubuntu_deps
+      - name: Install Ubuntu dependecies
+        run: bash ./scripts/install_ubuntu_deps
+      - name: Check Builder
+        run: |
+          cmake --version
+          gcc --version
+          openssl version -a
+      - name: Build Extension
+        run: |
+          cc -fPIC -c pgcrypsi.c -I /usr/include/postgresql/10/server/
+          cc -shared -o pgcrypsi.so pgcrypsi.o
+      - name: Check libdir
+        run: |
+          pg_config --pkglibdir
